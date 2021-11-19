@@ -13,6 +13,7 @@ def main():
     args = parser.parse_args()
     if args.verbose:
         logging.getLogger().setLevel(logging.DEBUG)
+        logging.debug("args: %s", args)
     slices = parse.parse(args.i)
     paste.paste(slices, args.output_file, asa=args.asa)
 
