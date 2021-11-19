@@ -60,3 +60,7 @@ enscript --font=Courier@11 --media=s5k --no-header --truncate-lines --baselinesk
 
 fi
 
+if $ALL || true; then
+enscript --font=Courier@11 --media=s5k --no-header --truncate-lines --baselineskip=-2.70 -o lgcat.ps lgcat.otxt
+fi
+

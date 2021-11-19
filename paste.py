@@ -2,12 +2,7 @@ import logging
 import json
 
 
-def do(ifn, ofn, line_length=None, asa=True):
-    slices = []
-    with open(ifn, 'r') as fp:
-        slices = json.load(fp)
-    # print(json.dumps(slices))
-
+def paste(slices, ofn, line_length=None, asa=True):
     slice_lengths = [len(sl) for sl in slices]
     logging.info("length of slices = %s", slice_lengths)
     n_lines = max(slice_lengths)
@@ -68,6 +63,14 @@ def do(ifn, ofn, line_length=None, asa=True):
                     fp.write(output_slice)
                     fp.write('\r')
                 fp.write('\n')
+
+
+def do(ifn, ofn, line_length=None, asa=True):
+    slices = []
+    with open(ifn, 'r') as fp:
+        slices = json.load(fp)
+    paste(slices, ofn, line_length=line_length, asa=asa)
+    # print(json.dumps(slices))
 
 
 def main():

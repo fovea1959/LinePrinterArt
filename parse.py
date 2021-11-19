@@ -2,7 +2,7 @@ import logging
 import json
 
 
-def do(ifn, ofn):
+def parse(ifn):
     slices = []
     current_slice = None
     current_line = None
@@ -40,6 +40,11 @@ def do(ifn, ofn):
                 current_line = []
                 current_slice.append(current_line)
             current_line.append(text)
+    return slices
+
+
+def do(ifn, ofn):
+    slices = parse(ifn)
     with open(ofn, 'w') as fp:
         json.dump(slices, fp, indent=2)
 
