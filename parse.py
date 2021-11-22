@@ -21,12 +21,21 @@ def parse(ifn):
                 current_line = None
             elif cc == ' ':
                 current_line = []
+                if current_slice is None:
+                    current_slice = []
+                    slices.append(current_slice)
                 current_slice.append(current_line)
             elif cc == '0':
+                if current_slice is None:
+                    current_slice = []
+                    slices.append(current_slice)
                 current_slice.append([''])    # blank line
                 current_line = []
                 current_slice.append(current_line)
             elif cc == '-':
+                if current_slice is None:
+                    current_slice = []
+                    slices.append(current_slice)
                 current_slice.append([''])  # blank line
                 current_slice.append([''])  # blank line
                 current_line = []
