@@ -1,0 +1,6 @@
+# Media definitions:
+#      name            width  height  llx    lly    urx    ury
+#Media: s10k            10072  10072   36     36     10036  10036
+#Media: s5k             5072   5072   36     36      5036   5036
+Media: s10k            10000  10000   00     00     10000  10000
+Media: s5k             5000   5000   00     00      5000   5000
